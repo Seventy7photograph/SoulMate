@@ -152,6 +152,9 @@ npm run dev
 .\scripts\start-demo.ps1 -UseFreeLlm
 ```
 
+也可以直接双击根目录的 `启动演示.cmd`。停止时双击
+`停止演示.cmd`，或运行 `.\scripts\stop-demo.ps1`。
+
 不使用免费模型，仅运行本地语义链路：
 
 ```powershell
