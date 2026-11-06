@@ -200,7 +200,7 @@ npm run build
 - FastAPI pytest: 8 项通过。
 - Playwright: 14 项通过。
 - TypeScript、ESLint、生产构建通过。
-- `npm audit --omit=dev`: 0 个已知生产依赖漏洞。
+- `npm audit`: 0 个已知依赖漏洞。
 
 ## 界面截图
 
