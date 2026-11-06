@@ -9,13 +9,14 @@
 - 在线演示: [https://inkiest-renae-facultatively.ngrok-free.dev](https://inkiest-renae-facultatively.ngrok-free.dev)
 - GitHub 仓库: [https://github.com/Seventy7photograph/aolinu-soulmate-xiaoya](https://github.com/Seventy7photograph/aolinu-soulmate-xiaoya)
 - 验收截图索引: [docs/截图](docs/截图)
-- 开发复盘 Word 文档: `docs/AI开发复盘_小雅.docx`
+- 开发复盘 Word 文档: [deliverables/交付物3_AI开发复盘_小雅.docx](deliverables/交付物3_AI开发复盘_小雅.docx)
 
 ## 交付物
 
 - 交付物 1: 实机演示 MP4，不在本次自动生成范围内。
 - 交付物 2: 完整源代码，以公开 GitHub 仓库形式交付。
-- 交付物 3: 一页中文开发复盘，见 `docs/AI开发复盘_小雅.docx` 和本文末尾的“开发复盘”章节。
+- 交付物 3: 一页中文开发复盘，见
+  `deliverables/交付物3_AI开发复盘_小雅.docx` 和本文末尾的“开发复盘”章节。
 
 ## 功能概览
 
