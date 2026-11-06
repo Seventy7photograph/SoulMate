@@ -1,0 +1,2 @@
+"""AOLINU SoulMate FastAPI proxy."""
+
