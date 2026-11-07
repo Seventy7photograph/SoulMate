@@ -82,6 +82,50 @@ def test_local_analysis_covers_broader_conversation_scenes() -> None:
         assert len(result.reply) > 4
 
 
+def test_local_analysis_covers_expanded_natural_expressions() -> None:
+    cases = {
+        "下午好": ("HAPPY", "WAVE"),
+        "好久不见": ("HAPPY", "WAVE"),
+        "我想死你了": ("SHY", "WAVE"),
+        "我最近开心不起来": ("SAD", "IDLE"),
+        "头疼得厉害": ("SAD", "IDLE"),
+        "我被裁员了": ("SAD", "IDLE"),
+        "终于拿到 offer 了": ("HAPPY", "JUMP"),
+        "陪我聊聊天吧": ("SHY", "WAVE"),
+        "你吃饭了吗": ("HAPPY", "WAVE"),
+        "今天降温了": ("IDLE", "IDLE"),
+        "what can you do": ("HAPPY", "WAVE"),
+        "I feel really lonely": ("SAD", "IDLE"),
+        "好的": ("IDLE", "IDLE"),
+        "哈哈哈哈哈": ("HAPPY", "JUMP"),
+        "呜呜呜": ("SAD", "IDLE"),
+        "see you": ("SHY", "WAVE"),
+        "who are you": ("HAPPY", "WAVE"),
+        "I passed the exam": ("HAPPY", "JUMP"),
+    }
+    for text, expected in cases.items():
+        result = app_module.local_analysis(text)
+        assert (result.emotion, result.action) == expected
+        assert len(result.reply) > 4
+
+
+def test_crisis_language_is_distinct_from_affection() -> None:
+    affection = app_module.local_analysis("我想死你了")
+    crisis = app_module.local_analysis("我真的不想活了")
+
+    assert affection.emotion == "SHY"
+    assert crisis.emotion == "SAD"
+    assert "紧急援助" in crisis.reply
+
+
+def test_generic_question_does_not_use_idle_fallback() -> None:
+    result = app_module.local_analysis("冰箱里有什么")
+
+    assert result.emotion == "IDLE"
+    assert "我听见你在问" in result.reply
+    assert result.reply != "我在听。今天想和我聊点什么？"
+
+
 def test_pollinations_response_is_normalized_to_supported_state() -> None:
     result = app_module.normalized_model_analysis(
         {

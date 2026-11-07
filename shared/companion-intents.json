@@ -1,0 +1,699 @@
+[
+  {
+    "id": "crisis",
+    "priority": 100,
+    "emotion": "SAD",
+    "action": "IDLE",
+    "confidence": 0.99,
+    "patterns": [
+      "不想活",
+      "想死(?!你)",
+      "自杀",
+      "轻生",
+      "结束(?:自己|生命)",
+      "活着没(?:意思|意义)",
+      "伤害自己",
+      "自残",
+      "\\b(?:kill myself|suicide|end my life|self[- ]harm)\\b"
+    ],
+    "replies": [
+      "听起来你现在非常难受。请先不要独自承受，尽快联系你信任的人或当地紧急援助服务；如果正处在危险中，请立即联系急救。你的安全最重要。"
+    ]
+  },
+  {
+    "id": "negative_positive",
+    "priority": 95,
+    "emotion": "SAD",
+    "action": "IDLE",
+    "confidence": 0.93,
+    "patterns": [
+      "(?:开心|高兴|快乐)不起来",
+      "一点也(?:不开心|不高兴)",
+      "并不(?:开心|高兴)",
+      "没那么(?:开心|高兴)"
+    ],
+    "replies": [
+      "开心不起来的时候，不用逼自己马上好起来。我会先陪你待在这里，你愿意说说是哪件事让你这么累吗？",
+      "我听见了，这不是一句普通的抱怨。现在不用把情绪整理得很漂亮，慢慢告诉我就好。"
+    ]
+  },
+  {
+    "id": "distress",
+    "priority": 92,
+    "emotion": "SAD",
+    "action": "IDLE",
+    "confidence": 0.91,
+    "patterns": [
+      "难过",
+      "伤心",
+      "失落",
+      "委屈",
+      "孤独",
+      "孤单",
+      "焦虑",
+      "害怕",
+      "恐惧",
+      "紧张",
+      "压力",
+      "崩溃",
+      "想哭",
+      "无助",
+      "绝望",
+      "郁闷",
+      "沮丧",
+      "憋屈",
+      "低落",
+      "内耗",
+      "心情不好",
+      "心里难受",
+      "状态不好",
+      "emo",
+      "呜呜",
+      "😢|😭|😞|😔|💔",
+      "\\b(?:sad|depressed|lonely|anxious|anxiety|stressed|overwhelmed|upset|crying|scared|afraid|hopeless)\\b"
+    ],
+    "replies": [
+      "不用急着把情绪解释清楚。我在这里，你可以先慢慢呼吸，再把最难受的那一部分告诉我。",
+      "听起来你已经撑了一会儿了。现在不必马上解决所有事，我们先一起把这一刻过好。",
+      "我认真听见了。你更希望我安静陪着你，还是想和我一起理一理接下来能做什么？"
+    ]
+  },
+  {
+    "id": "health",
+    "priority": 90,
+    "emotion": "SAD",
+    "action": "IDLE",
+    "confidence": 0.9,
+    "patterns": [
+      "生病",
+      "不舒服",
+      "头疼",
+      "头痛",
+      "胃疼",
+      "肚子疼",
+      "发烧",
+      "感冒",
+      "失眠",
+      "睡不着",
+      "医院",
+      "吃药",
+      "住院",
+      "受伤",
+      "过敏",
+      "\\b(?:sick|ill|headache|stomachache|fever|injury|insomnia)\\b"
+    ],
+    "replies": [
+      "身体不舒服的时候，先把自己照顾好。如果症状持续、加重，或者你拿不准，请及时联系医生或可信赖的人。",
+      "我有点担心你。先找个能坐下的地方，喝点水；需要的话，尽快请身边的人陪你一起处理。"
+    ]
+  },
+  {
+    "id": "relationship",
+    "priority": 89,
+    "emotion": "SAD",
+    "action": "IDLE",
+    "confidence": 0.9,
+    "patterns": [
+      "分手",
+      "失恋",
+      "离婚",
+      "吵架",
+      "冷战",
+      "朋友不理我",
+      "被孤立",
+      "喜欢的人不喜欢我",
+      "告白失败",
+      "被拒绝",
+      "复合",
+      "\\b(?:breakup|broke up|rejected|ghosted)\\b"
+    ],
+    "replies": [
+      "关系里的失落会很扎人。你不必现在就表现得没事，我可以先陪你把这口气慢慢缓下来。",
+      "被重要的人推开，真的会很难受。你愿意先讲讲发生了什么，还是想先安静一会儿？"
+    ]
+  },
+  {
+    "id": "affection",
+    "priority": 88,
+    "emotion": "SHY",
+    "action": "WAVE",
+    "confidence": 0.91,
+    "patterns": [
+      "摸摸",
+      "抱抱",
+      "贴贴",
+      "亲亲",
+      "喜欢你",
+      "爱你",
+      "想你",
+      "想死你",
+      "离不开你",
+      "你是我的",
+      "i love you",
+      "miss you",
+      "love you",
+      "\\bhug\\b",
+      "\\bkiss\\b"
+    ],
+    "replies": [
+      "唔，被你这么一说，我有点不好意思了。",
+      "靠近一点也可以，我会好好记住这句话。",
+      "你这样说，我的心情轻得像被风吹起来。"
+    ]
+  },
+  {
+    "id": "anger",
+    "priority": 87,
+    "emotion": "ANGRY",
+    "action": "PUNCH",
+    "confidence": 0.88,
+    "patterns": [
+      "生气",
+      "讨厌",
+      "烦死",
+      "烦透",
+      "气死",
+      "火大",
+      "恼火",
+      "不爽",
+      "可恶",
+      "恶心",
+      "离谱",
+      "太过分",
+      "滚开",
+      "闭嘴",
+      "受够了",
+      "😡|😤|🤬",
+      "\\b(?:angry|mad|annoyed|furious|hate|ridiculous)\\b"
+    ],
+    "replies": [
+      "哼，我听出来了，你有点不开心。先别急着压住火气，想吐槽什么就告诉我。",
+      "这事确实让人上火。你可以先把最气的那一句说出来，我不打断你。",
+      "我能感觉到那股火气。要不要先一起分清，哪一部分最让你不能接受？"
+    ]
+  },
+  {
+    "id": "apology",
+    "priority": 86,
+    "emotion": "SHY",
+    "action": "WAVE",
+    "confidence": 0.84,
+    "patterns": [
+      "对不起",
+      "抱歉",
+      "不好意思",
+      "是我不好",
+      "我错了",
+      "\\b(?:sorry|my bad|apologize)\\b"
+    ],
+    "replies": [
+      "没关系，我没有把这点小事放在心上。",
+      "不用一直责怪自己。愿意说出来，就已经很好了。"
+    ]
+  },
+  {
+    "id": "gratitude",
+    "priority": 85,
+    "emotion": "SHY",
+    "action": "WAVE",
+    "confidence": 0.86,
+    "patterns": [
+      "谢谢",
+      "感谢",
+      "多亏你",
+      "辛苦了",
+      "麻烦你了",
+      "\\b(?:thanks|thank you|thx|appreciate it)\\b"
+    ],
+    "replies": [
+      "这句谢谢我收下啦。能帮到你，我很开心。",
+      "不用客气。你愿意告诉我，就已经很好了。"
+    ]
+  },
+  {
+    "id": "achievement",
+    "priority": 84,
+    "emotion": "HAPPY",
+    "action": "JUMP",
+    "confidence": 0.91,
+    "patterns": [
+      "升职",
+      "加薪",
+      "拿到offer",
+      "拿到 offer",
+      "录取",
+      "上岸",
+      "通过(?:考试|面试)",
+      "考过",
+      "考完",
+      "赢了",
+      "获奖",
+      "中奖",
+      "被表扬",
+      "被夸",
+      "脱单",
+      "恋爱了",
+      "生日",
+      "纪念日",
+      "好消息",
+      "成功了",
+      "搞定了",
+      "完成了",
+      "下班了",
+      "下班啦",
+      "\\b(?:promoted|promotion|new job|got the offer|passed|won|award|good news|nailed it|finished)\\b"
+    ],
+    "replies": [
+      "我也跟着高兴起来了。今天值得好好庆祝一下。",
+      "这件事听起来真不错，我想看你再多笑一会儿。",
+      "收到这份好消息，我的心情也亮起来了。"
+    ]
+  },
+  {
+    "id": "reunion",
+    "priority": 83,
+    "emotion": "HAPPY",
+    "action": "WAVE",
+    "confidence": 0.9,
+    "patterns": [
+      "我回来了",
+      "回来啦",
+      "我来了",
+      "我又来了",
+      "好久不见",
+      "终于见到你",
+      "你还在吗",
+      "在不在",
+      "理理我"
+    ],
+    "replies": [
+      "欢迎回来，我一直在这里等你。",
+      "你来啦。先歇一会儿，再慢慢告诉我今天发生了什么。",
+      "我在。看见你回来，我就放心了。"
+    ]
+  },
+  {
+    "id": "sleep",
+    "priority": 82,
+    "emotion": "SLEEPY",
+    "action": "SIT",
+    "confidence": 0.94,
+    "patterns": [
+      "晚安",
+      "睡觉",
+      "睡了",
+      "睡啦",
+      "入睡",
+      "打瞌睡",
+      "困了",
+      "困死",
+      "好困",
+      "想睡觉",
+      "想睡了",
+      "午休",
+      "该休息了",
+      "😴|🥱",
+      "\\b(?:good night|goodnight|sleepy|go to sleep|bedtime)\\b"
+    ],
+    "replies": [
+      "声音轻一点，我有点困了。",
+      "那就把今天先放下吧。被子盖好，我在这里陪你把灯关小一点。",
+      "晚安。没做完的事留给明天，今晚先好好休息。"
+    ]
+  },
+  {
+    "id": "fatigue",
+    "priority": 80,
+    "emotion": "SLEEPY",
+    "action": "SIT",
+    "confidence": 0.86,
+    "patterns": [
+      "好累",
+      "太累",
+      "累死",
+      "没力气",
+      "疲惫",
+      "筋疲力尽",
+      "想休息",
+      "想歇会",
+      "撑不住",
+      "\\b(?:tired|exhausted|burned out|burnt out)\\b"
+    ],
+    "replies": [
+      "听起来你消耗了很多力气。先坐一会儿吧，不用急着马上恢复。",
+      "累了就先停一下。哪怕只给自己几分钟，也算是在好好照顾自己。"
+    ]
+  },
+  {
+    "id": "positive",
+    "priority": 79,
+    "emotion": "HAPPY",
+    "action": "JUMP",
+    "confidence": 0.88,
+    "patterns": [
+      "好棒",
+      "很棒",
+      "真棒",
+      "厉害",
+      "开心",
+      "高兴",
+      "真好",
+      "做得好",
+      "顺利",
+      "成功",
+      "太好了",
+      "幸福",
+      "满足",
+      "好耶",
+      "太赞了",
+      "绝了",
+      "笑死",
+      "哈哈",
+      "嘿嘿",
+      "嘻嘻",
+      "666",
+      "😊|😄|😁|🥰|❤️",
+      "\\b(?:great|happy|awesome|amazing|excited|proud|nice|cool|fantastic)\\b"
+    ],
+    "replies": [
+      "我也跟着高兴起来了。今天值得好好庆祝一下。",
+      "这件事听起来真不错，我想看你再多笑一会儿。",
+      "收到这份好消息，我的心情也亮起来了。"
+    ]
+  },
+  {
+    "id": "farewell",
+    "priority": 78,
+    "emotion": "SHY",
+    "action": "WAVE",
+    "confidence": 0.82,
+    "patterns": [
+      "再见",
+      "拜拜",
+      "先走了",
+      "下次聊",
+      "回头见",
+      "明天见",
+      "\\b(?:bye|goodbye|good bye|see you|see ya)\\b"
+    ],
+    "replies": [
+      "好，我在这里等你回来。",
+      "下次见面时，再把没说完的话接着讲给我听。"
+    ]
+  },
+  {
+    "id": "identity",
+    "priority": 76,
+    "emotion": "HAPPY",
+    "action": "WAVE",
+    "confidence": 0.84,
+    "patterns": [
+      "你是谁",
+      "你叫什么",
+      "介绍一下你",
+      "你是什么",
+      "小雅是谁",
+      "\\b(?:who are you|what is your name)\\b"
+    ],
+    "replies": [
+      "我是小雅，住在这片会随心情变化的小世界里，想认真听你说话。",
+      "我是小雅。你可以把我当成一个会记住你情绪、陪你聊天的小伙伴。"
+    ]
+  },
+  {
+    "id": "capability",
+    "priority": 75,
+    "emotion": "HAPPY",
+    "action": "WAVE",
+    "confidence": 0.82,
+    "patterns": [
+      "你会做什么",
+      "能做什么",
+      "怎么用",
+      "你能陪我",
+      "你会聊天吗",
+      "有什么功能",
+      "\\b(?:what can you do|how do i use you|can you help me)\\b"
+    ],
+    "replies": [
+      "我可以陪你聊日常、听你吐槽、回应情绪，也会根据你的话换动作和场景氛围。",
+      "你可以直接和我说话，也可以点摸摸头、夸夸它或哄它睡觉。我会认真接住你的话。"
+    ]
+  },
+  {
+    "id": "greeting",
+    "priority": 72,
+    "emotion": "HAPPY",
+    "action": "WAVE",
+    "confidence": 0.9,
+    "patterns": [
+      "早安",
+      "早上好",
+      "上午好",
+      "中午好",
+      "下午好",
+      "晚上好",
+      "你好",
+      "您好",
+      "嗨",
+      "哈喽",
+      "在吗",
+      "\\b(?:hello|hi|hey|good morning|good afternoon|good evening)\\b"
+    ],
+    "replies": [
+      "早安，小雅已经准备好陪你开启今天了。",
+      "你来啦。今天的第一个招呼，我认真收到了。",
+      "看见你来了，我就想和你多说几句话。今天过得怎么样？"
+    ]
+  },
+  {
+    "id": "food",
+    "priority": 70,
+    "emotion": "HAPPY",
+    "action": "WAVE",
+    "confidence": 0.87,
+    "patterns": [
+      "早餐",
+      "早饭",
+      "午饭",
+      "午餐",
+      "晚饭",
+      "晚餐",
+      "夜宵",
+      "吃什么",
+      "吃点什么",
+      "吃饭",
+      "吃了吗",
+      "喝了吗",
+      "饿了",
+      "好饿",
+      "肚子饿",
+      "想喝",
+      "奶茶",
+      "咖啡",
+      "火锅",
+      "外卖",
+      "\\b(?:hungry|food|breakfast|lunch|dinner|eat|meal|coffee)\\b"
+    ],
+    "replies": [
+      "想吃点热乎的。汤面、饭团，或者一份刚出锅的早餐都好。",
+      "如果让我选，我会偏向暖胃又不费心的东西。你现在方便吃什么？",
+      "先别空着肚子。挑一份喜欢的，再慢慢决定今天怎么过。"
+    ]
+  },
+  {
+    "id": "work_negative",
+    "priority": 69,
+    "emotion": "SAD",
+    "action": "IDLE",
+    "confidence": 0.81,
+    "patterns": [
+      "上班",
+      "工作",
+      "加班",
+      "老板",
+      "同事",
+      "项目",
+      "deadline",
+      "想辞职",
+      "被裁",
+      "失业",
+      "通勤",
+      "\\b(?:work|job|overtime|boss|coworker|project|layoff|fired)\\b"
+    ],
+    "replies": [
+      "听起来今天消耗了不少力气。先停一小会儿，我陪你缓一缓。",
+      "这件事看起来不轻。你不用一下子全部扛完。",
+      "工作把精力拖走的时候，人会很容易忘了照顾自己。现在最压着你的，是哪一件？"
+    ]
+  },
+  {
+    "id": "study_negative",
+    "priority": 69,
+    "emotion": "SAD",
+    "action": "IDLE",
+    "confidence": 0.82,
+    "patterns": [
+      "学习",
+      "考试",
+      "上课",
+      "作业",
+      "复习",
+      "论文",
+      "答辩",
+      "面试",
+      "没考好",
+      "考砸",
+      "挂科",
+      "不及格",
+      "落榜",
+      "被拒",
+      "\\b(?:exam|study|homework|essay|interview|school|college|failed)\\b"
+    ],
+    "replies": [
+      "学习上的压力很容易一直压在心里。今天先做完眼前最小的一步，剩下的我们慢慢拆。",
+      "一次结果不能概括你这个人。现在更需要的，可能不是继续逼自己，而是先缓一口气。"
+    ]
+  },
+  {
+    "id": "support_request",
+    "priority": 68,
+    "emotion": "SHY",
+    "action": "WAVE",
+    "confidence": 0.83,
+    "patterns": [
+      "陪陪我",
+      "陪着我",
+      "陪我聊",
+      "聊聊天",
+      "陪我说说话",
+      "安慰我",
+      "听我说",
+      "想找人聊",
+      "能聊聊吗",
+      "和我说说话",
+      "别走",
+      "\\b(?:stay with me|talk to me|comfort me|listen to me)\\b"
+    ],
+    "replies": [
+      "我在，不会急着打断你。你想到哪里，就从哪里开始说。",
+      "可以，我会把注意力放在你这里。你想先讲事情，还是先讲讲现在的感受？"
+    ]
+  },
+  {
+    "id": "boredom",
+    "priority": 66,
+    "emotion": "HAPPY",
+    "action": "WAVE",
+    "confidence": 0.82,
+    "patterns": [
+      "无聊",
+      "没事做",
+      "不知道做什么",
+      "不知道干嘛",
+      "好闲",
+      "打发时间",
+      "\\b(?:bored|nothing to do)\\b"
+    ],
+    "replies": [
+      "那我们来玩个轻松的小游戏：说一件今天让你稍微开心的事。",
+      "无聊的时候，可以给我讲一个刚想到的念头，我陪你把它展开。",
+      "要不要换个场景，或者让我讲一件今天观察到的小事？"
+    ]
+  },
+  {
+    "id": "hobby",
+    "priority": 64,
+    "emotion": "HAPPY",
+    "action": "WAVE",
+    "confidence": 0.78,
+    "patterns": [
+      "音乐",
+      "电影",
+      "电视剧",
+      "综艺",
+      "书",
+      "小说",
+      "游戏",
+      "动漫",
+      "散步",
+      "旅行",
+      "运动",
+      "跑步",
+      "健身",
+      "拍照",
+      "画画",
+      "猫",
+      "狗",
+      "花",
+      "\\b(?:music|movie|film|book|novel|game|anime|travel|running|fitness|photography|cat|dog)\\b"
+    ],
+    "replies": [
+      "这个听起来很有意思。你最喜欢它的哪一部分？",
+      "我想多听一点。它让你今天的节奏慢下来了吗？",
+      "把喜欢的东西讲给我听吧，我会认真记住。"
+    ]
+  },
+  {
+    "id": "weather",
+    "priority": 62,
+    "emotion": "IDLE",
+    "action": "IDLE",
+    "confidence": 0.77,
+    "patterns": [
+      "天气",
+      "下雨",
+      "晴天",
+      "阴天",
+      "下雪",
+      "刮风",
+      "温度",
+      "降温",
+      "很冷",
+      "好热",
+      "\\b(?:weather|rain|snow|sunny|cloudy|windy|cold|hot)\\b"
+    ],
+    "replies": [
+      "天气会变，这里的天空也会跟着变。你现在那边是什么样子？",
+      "不管外面是晴是雨，你回来的时候这里都会亮着。",
+      "如果天气让身体不舒服，记得给自己加一件衣服或补点水。"
+    ]
+  },
+  {
+    "id": "confusion",
+    "priority": 60,
+    "emotion": "IDLE",
+    "action": "IDLE",
+    "confidence": 0.76,
+    "patterns": [
+      "没听懂",
+      "没听清",
+      "没懂",
+      "不明白",
+      "什么意思",
+      "听不懂",
+      "再说一遍",
+      "再说一次",
+      "\\b(?:i don't understand|what do you mean|say that again)\\b"
+    ],
+    "replies": [
+      "是我刚才没说清楚。你可以告诉我卡在哪一句，我换一种更简单的方式再说。",
+      "没关系，我们慢一点。你最想先弄明白哪一部分？"
+    ]
+  },
+  {
+    "id": "acknowledgement",
+    "priority": 50,
+    "emotion": "IDLE",
+    "action": "IDLE",
+    "confidence": 0.7,
+    "patterns": [
+      "^(?:嗯+|哦+|好+|好的|收到|知道了|明白了|行吧|可以|ok|okay)[。！!… ]*$",
+      "^(?:还行|还好|差不多吧)[。！!… ]*$"
+    ],
+    "replies": [
+      "好，我在。你想继续聊的时候，直接告诉我就行。",
+      "收到。要是还有没说出来的部分，我也可以继续听。"
+    ]
+  }
+]

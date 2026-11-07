@@ -31,10 +31,16 @@ describe("companion store", () => {
         expect.objectContaining({ role: "USER", text: "晚安，早点睡" }),
         expect.objectContaining({
           role: "COMPANION",
-          text: "声音轻一点，我有点困了。",
+          emotion: "SLEEPY",
         }),
       ]),
     );
+    expect(
+      state.messages
+        .filter((message) => message.role === "COMPANION")
+        .at(-1)
+        ?.text,
+    ).not.toBe("我在听。今天想和我聊点什么？");
     expect(state.action).toBe("SIT");
     expect(state.actionNonce).toBe(1);
   });

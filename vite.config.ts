@@ -6,12 +6,6 @@ export default defineConfig({
   server: {
     host: "127.0.0.1",
     port: 4173,
-    allowedHosts: [
-      "localhost",
-      "127.0.0.1",
-      ".ngrok-free.app",
-      ".ngrok-free.dev",
-    ],
     proxy: {
       "/api": "http://127.0.0.1:8000",
     },
@@ -19,12 +13,6 @@ export default defineConfig({
   preview: {
     host: "127.0.0.1",
     port: 4173,
-    allowedHosts: [
-      "localhost",
-      "127.0.0.1",
-      ".ngrok-free.app",
-      ".ngrok-free.dev",
-    ],
   },
   build: {
     chunkSizeWarningLimit: 850,

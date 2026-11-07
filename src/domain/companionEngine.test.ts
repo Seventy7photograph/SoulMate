@@ -60,6 +60,52 @@ describe("local emotion rules", () => {
     },
   );
 
+  it.each([
+    ["下午好", "HAPPY", "WAVE"],
+    ["好久不见", "HAPPY", "WAVE"],
+    ["我想死你了", "SHY", "WAVE"],
+    ["我最近开心不起来", "SAD", "IDLE"],
+    ["头疼得厉害", "SAD", "IDLE"],
+    ["我被裁员了", "SAD", "IDLE"],
+    ["终于拿到 offer 了", "HAPPY", "JUMP"],
+    ["陪我聊聊天吧", "SHY", "WAVE"],
+    ["你吃饭了吗", "HAPPY", "WAVE"],
+    ["今天降温了", "IDLE", "IDLE"],
+    ["what can you do", "HAPPY", "WAVE"],
+    ["I feel really lonely", "SAD", "IDLE"],
+    ["好的", "IDLE", "IDLE"],
+    ["哈哈哈哈哈", "HAPPY", "JUMP"],
+    ["呜呜呜", "SAD", "IDLE"],
+    ["see you", "SHY", "WAVE"],
+    ["who are you", "HAPPY", "WAVE"],
+    ["I passed the exam", "HAPPY", "JUMP"],
+  ] as const)(
+    "recognizes expanded natural expression %s",
+    (text, emotion, action) => {
+      const result = analyzeText(text);
+      expect(result.emotion).toBe(emotion);
+      expect(result.action).toBe(action);
+      expect(result.reply.length).toBeGreaterThan(4);
+    },
+  );
+
+  it("does not confuse an affectionate miss-you phrase with a crisis", () => {
+    const affection = analyzeText("我想死你了");
+    const crisis = analyzeText("我真的不想活了");
+
+    expect(affection.emotion).toBe("SHY");
+    expect(crisis.emotion).toBe("SAD");
+    expect(crisis.reply).toContain("紧急援助");
+  });
+
+  it("gives generic questions a useful response instead of the idle fallback", () => {
+    const result = analyzeText("冰箱里有什么");
+
+    expect(result.emotion).toBe("IDLE");
+    expect(result.reply).toContain("我听见你在问");
+    expect(result.reply).not.toBe("我在听。今天想和我聊点什么？");
+  });
+
   it("provides the three required quick actions", () => {
     expect(quickActions.map((action) => action.label)).toEqual([
       "摸摸头",
